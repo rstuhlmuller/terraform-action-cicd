@@ -4,9 +4,20 @@ branding:
   icon: "box"
   color: "purple"
 
+inputs:
+  terraform_version:
+    description: "The version of terrafrom to install."
+    default: 1.5.4
+
 runs:
   using: "composite"
   steps:
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v2
+      with:
+        terraform_wrapper: false
+        terraform_version: ${{ inputs.terraform_version }}
+
     - name: Terraform Init
       shell: bash
       run: |

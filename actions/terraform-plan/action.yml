@@ -1,0 +1,29 @@
+name: "Terraform CICD For GitHub Actions"
+description: "Run Terraform plan and apply with detailed and formatted outputs"
+branding:
+  icon: "box"
+  color: "purple"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Terraform Init
+      shell: bash
+      run: |
+        terraform init --terraform-non-interactive
+
+    - name: Terraform Format
+      shell: bash
+      run: |
+        terraform fmt -r --check
+
+    - name: Terraform Validate
+      shell: bash
+      run: |
+        terraform validate
+
+    - name: Terraform Plan
+
+      shell: bash
+      run: |
+        terraform plan --input=false --out=plan.out

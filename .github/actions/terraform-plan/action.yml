@@ -21,7 +21,8 @@ runs:
     - name: Terraform Init
       shell: bash
       run: |
-        terraform init --terraform-non-interactive
+        terraform init -upgrade
+        terraform -v
 
     - name: Terraform Format
       shell: bash

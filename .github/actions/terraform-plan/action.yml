@@ -8,7 +8,9 @@ inputs:
   terraform_version:
     description: "The version of terrafrom to install."
     default: 1.5.4
-
+  terraform-working-dir:
+    description: "Path/To/Terraform working directory"
+    default: "/"
 runs:
   using: "composite"
   steps:

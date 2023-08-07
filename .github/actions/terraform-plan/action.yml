@@ -8,18 +8,10 @@ inputs:
   terraform_version:
     description: "The version of terrafrom to install."
     default: 1.5.4
-  terraform-working-dir:
-    description: Path to the terraform working directory of your repository
-    default: .
 
 runs:
   using: "composite"
   steps:
-    - name: Move to Terraform working directory
-      shell: bash
-      run: |
-        cd ${{ inputs.terraform-working-dir }}
-
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v2
       with:
